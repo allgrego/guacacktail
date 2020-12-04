@@ -22,7 +22,7 @@
 				<!-- Header -->
 				<!-- Note: The "styleN" class below should match that of the banner element. -->
 					<header id="header" class="alt style2">
-						<a href="/" class="logo"><strong>Guacacktail</strong></a>
+						<a href="/" class="logo"><strong>Guacacktail</strong> | {{$destilado}}</a>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -31,8 +31,14 @@
 
 				<!-- Menu -->
 					<nav id="menu">
-						<ul class="links">
-							<li><a href="/">Home</a></li>
+                        <ul class="actions stacked">
+							<li><a href="/" class="button primary fit">Home</a></li>
+                            <li><a href="/cocktails/rum" class="button fit">Rum Cocktails</a></li>
+                            <li><a href="/cocktails/vodka" class="button fit">Vodka Cocktails</a></li>
+                            <li><a href="/cocktails/beer" class="button fit">Beer Cocktails</a></li>
+                            <li><a href="/cocktails/wine" class="button fit">Wine Cocktails</a></li>
+                            <li><a href="/cocktails/tequila" class="button fit">Tequila Cocktails</a></li>
+                            <li><a href="/cocktails/gin" class="button fit">Gin Cocktails</a></li>
 						</ul>
 					</nav>
 

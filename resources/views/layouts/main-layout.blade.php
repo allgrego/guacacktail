@@ -28,9 +28,15 @@
 					</header>
 
 				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="/">Home</a></li>
+                    <nav id="menu">
+                        <ul class="actions stacked">
+							<li><a href="/" class="button primary fit">Home</a></li>
+                            <li><a href="/cocktails/rum" class="button fit">Rum Cocktails</a></li>
+                            <li><a href="/cocktails/vodka" class="button fit">Vodka Cocktails</a></li>
+                            <li><a href="/cocktails/beer" class="button fit">Beer Cocktails</a></li>
+                            <li><a href="/cocktails/wine" class="button fit">Wine Cocktails</a></li>
+                            <li><a href="/cocktails/tequila" class="button fit">Tequila Cocktails</a></li>
+                            <li><a href="/cocktails/gin" class="button fit">Gin Cocktails</a></li>
 						</ul>
 					</nav>
 
@@ -52,7 +58,6 @@
 
 				<!-- Main -->
 					<div id="main">
-
 						@yield('content')
 					</div>
 
