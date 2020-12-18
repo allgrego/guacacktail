@@ -7,10 +7,10 @@
 <html>
 	<head>
 		
-		<meta charset="utf-8" />
+    <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{asset('css/main.css')}}" />
-		<link rel="stylesheet" href="{{asset('css/app.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/app.css')}}" />
         <noscript><link rel="stylesheet" href="{{asset('css/noscript.css')}}" /></noscript>
         @yield('head')
         <title>Guacacktail</title>
@@ -21,15 +21,17 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="/" class="logo"><strong>Guacacktail</strong></a>
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="alt style2">
+						<a href="/" class="logo"><strong>Guacacktail</strong> | Cocktail {{$cocktail['strDrink']}}</a>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
 					</header>
 
+
 				<!-- Menu -->
-                    <nav id="menu">
+					<nav id="menu">
                         <ul class="actions stacked">
 							<li><a href="/" class="button primary fit">Home</a></li>
                             <li><a href="/cocktails/rum" class="button fit">Rum Cocktails</a></li>
@@ -41,25 +43,10 @@
 						</ul>
 					</nav>
 
-				<!-- Banner -->
-					<section id="banner" class="major">
-						<div class="inner">
-							<header class="major">
-								<h1>Welcome to Guacacktail</h1>
-							</header>
-							<div class="content">
-								<p>A website where you can submerge into the<br />
-								cocktails world</p>
-								<ul class="actions">
-									<li><a href="#one" class="button next scrolly">Get Started</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
-
 				<!-- Main -->
 					<div id="main">
-						@yield('content')
+
+@yield('content')
 					</div>
 
 				<!-- Footer -->
@@ -80,7 +67,7 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="{{asset('js/jquery.min.js')}}"></script>
+            <script src="{{asset('js/jquery.min.js')}}"></script>
 			<script src="{{asset('js/jquery.scrolly.min.js')}}"></script>
 			<script src="{{asset('js/jquery.scrollex.min.js')}}"></script>
 			<script src="{{asset('js/browser.min.js')}}"></script>

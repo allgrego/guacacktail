@@ -1,0 +1,56 @@
+@-moz-keyframes reveal-fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes reveal-fadein{
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes reveal-fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes reveal-fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.cust_fade-in{
+    -moz-transition: reveal-fadein 2s ease-in;
+    -webkit-animation: reveal-fadein 2s ease-in;
+    -ms-animation: reveal-fadein 2s ease-in;
+    animation: reveal-fadein 2s ease-in;
+}
+
+.cust_colorized{
+	opacity:0.5;
+	transition: opacity 0.5s ease-in-out;
+
+}
+.cust_colorized:hover{
+	opacity:0.85;
+}

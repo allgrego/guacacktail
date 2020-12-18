@@ -56,13 +56,30 @@ Route::get('/cocktail/{id}', function (Request $request){
 
     $url = 'https://thecocktaildb.com/api/json/v1/1/lookup.php?i='.$request['id'];
     $response = Http::get($url);
-    $cocktail = $response->json()['drinks'];
+    $cocktail = $response->json()['drinks'][0];
+    
+    $ingredients = array();
+    $measures = array();
 
-    echo $response;
-    return;
+    // Set Ingredients
+    foreach($cocktail as $key => $value){
+        if(strpos($key,"Ingredient")&&$value){
+            //array_push($ingredients,$value);
+            $counter = explode("strIngredient",$key)[1];
+            $newkey = 'Ingredient'.$counter;
+            $ingredients[$newkey] = $value;
+        }
+    }
 
-    $randnum = random_int(0,count($cocktails)-1);
-    $destilado = $request['ingredient'];
-    $destilado[0] = strtoupper($destilado[0]);
-    return view("list-cocktails",compact('cocktails','randnum','destilado'));
+    // Set Measures
+    foreach($cocktail as $key => $value){
+        if(strpos($key,"Measure")&&$value){
+            //array_push($measures,$value);
+            $counter = explode("strMeasure",$key)[1];
+            $newkey = 'Ingredient'.$counter;
+            $measures[$newkey] = $value;
+        }
+    }
+
+    return view("cocktail-details",compact('cocktail','ingredients','measures'));
 });

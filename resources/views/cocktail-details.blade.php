@@ -1,4 +1,4 @@
-@extends('layouts/list-layout')
+@extends('layouts/cocktail-details-layout')
 
 @section('content')
 
@@ -12,26 +12,48 @@
 								</div>
 							</section>
  -->
+
 						<!-- Two -->
                         <section id="two" class="spotlights">
-                                @foreach($cocktails as $cocktail)
                                 <section>
-									<a href="{{'/cocktail/'.$cocktail['idDrink']}}" class="image cust_fade-in" style="background: linear-gradient(45deg,#87c5a4,#8d82c4 ,#6fc3df);">
-										<img src="{{$cocktail['strDrinkThumb']}}" alt="" data-position="center center" class="cust_colorized"/>
+									<a  class="image cust_fade-in" >
+										<img src="{{$cocktail['strDrinkThumb']}}" alt="" data-position="center center" id="image_"/>
 									</a>
 									<div class="content">
+                                        
 										<div class="inner">
 											<header class="major">
-												<a href="{{'/cocktail/'.$cocktail['idDrink']}}"><h2>{{$cocktail['strDrink']}}</h2></a>
+                                                <h2>{{$cocktail['strDrink']}}</h2>
+                                                @if($cocktail['strCategory'])
+                                                    <p>{{$cocktail['strCategory']}}</p>
+                                                @endif
 											</header>
+
+                                            @if(isset($ingredients))
+                                            <h3>Ingredients:</h3>
+                                            @endif
+                                            <ul>
+                                            @foreach($ingredients as $key => $ingredient)
+                                                <li>
+                                                    @if(!empty($measures[$key])){{$measures[$key]}}@endif {{$ingredient}}
+                                                </li>
+                                            @endforeach
+                                            </ul>
                                             
-											<ul class="actions">
-												<li><a href="{{'/cocktail/'.$cocktail['idDrink']}}" class="button">More Information</a></li>
-											</ul>
+                                            @if(isset($cocktail['strInstructions']))
+                                            <h3>Instructions:</h3>
+                                            <p>{{$cocktail['strInstructions']}}</p>
+                                            @endif
+
+                                            @if(isset($cocktail['strGlass']))
+                                            <h3>Glass:</h3>
+                                            <p>{{$cocktail['strGlass']}}</p>
+                                            @endif
 										</div>
+                                        
 									</div>
                                 </section>
-                                @endforeach
+                                
 								<!-- <section>
 									<a href="generic.html" class="image">
 										<img src="images/pic09.jpg" alt="" data-position="top center" />
