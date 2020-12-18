@@ -1,3 +1,15 @@
+# Guackactail
+
+## About Guacacktail
+Guacacktail is a web application where you can find a list of cocktails according to the main liquor you select.
+Once you select the cocktail you want you are able to get its ingredients and how it is prepared.
+
+You can watch the deployment in http://guacacktail.herokuapp.com/
+
+Guacacktail is based on [HTML5UP](https://html5up.net/), and powered by Laravel and [The Cocktail DB API](https://www.thecocktaildb.com/api.php).
+
+#### Currently in development phase.
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
