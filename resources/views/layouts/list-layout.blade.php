@@ -64,6 +64,37 @@
 					<div id="main">
 
 @yield('content')
+						<!-- Three -->
+						<section id="three">
+							<div class="inner" style="margin: auto">
+								<ul class="actions">
+									<!-- <li><a href="generic.html" class="button next">Get Started</a></li> -->
+									<!-- <li><a href="{{'/cocktails/'.$destilado.'?page='.($page+1)}}" class="button next"></a></li> -->
+									@if($page>2)
+										<li><a href="{{'/cocktails/'.$destilado}}" class="button primary">1 ...</a></li>
+										<li><a href="{{'/cocktails/'.$destilado.'?page='.($page-2)}}" class="button">{{$page - 2}}</a></li>
+									@endif
+
+									@if($page>1)
+										<li><a href="{{'/cocktails/'.$destilado.'?page='.($page-1)}}" class="button">{{$page - 1}}</a></li>
+									@endif
+
+										<li><a href="javascript: void(0)" class="button primary">{{$page}}</a></li>
+
+									@if($page+1<=$last_page)
+										<li><a href="{{'/cocktails/'.$destilado.'?page='.($page+1)}}" class="button">{{$page + 1}}</a></li>
+									@endif
+
+									@if($page+2<=$last_page)
+										<li><a href="{{'/cocktails/'.$destilado.'?page='.($page+2)}}" class="button">{{$page + 2}}</a></li>
+									@endif
+
+									@if($page<$last_page-1)
+										<li><a href="{{'/cocktails/'.$destilado.'?page='.($last_page)}}" class="button primary">... {{$last_page}}</a></li>
+									@endif
+								</ul>
+							</div>
+						</section>
 					</div>
 
 				<!-- Footer -->
