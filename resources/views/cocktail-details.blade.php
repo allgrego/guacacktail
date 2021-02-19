@@ -1,105 +1,46 @@
 @extends('layouts/cocktail-details-layout')
 
 @section('content')
+{{-- Two --}}
+<section id="two" class="spotlights">
+	<section>
+		<a  class="image cust_fade-in" >
+			<img src="{{$cocktail['strDrinkThumb']}}" alt="" data-position="center center" id="image_"/>
+		</a>
+		<div class="content">
+			
+			<div class="inner">
+				<header class="major">
+					<h2>{{$cocktail['strDrink']}}</h2>
+					@if($cocktail['strCategory'])
+						<p>{{$cocktail['strCategory']}}</p>
+					@endif
+				</header>
 
-						<!-- One -->
-							<!-- <section id="one">
-								<div class="inner">
-									<header class="major">
-										<h2>Sed amet aliquam</h2>
-									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.</p>
-								</div>
-							</section>
- -->
+				@if(isset($ingredients))
+				<h3>Ingredients:</h3>
+				@endif
+				<ul>
+				@foreach($ingredients as $key => $ingredient)
+					<li>
+						@if(!empty($measures[$key])){{$measures[$key]}}@endif {{$ingredient}}
+					</li>
+				@endforeach
+				</ul>
+				
+				@if(isset($cocktail['strInstructions']))
+				<h3>Instructions:</h3>
+				<p>{{$cocktail['strInstructions']}}</p>
+				@endif
 
-						<!-- Two -->
-                        <section id="two" class="spotlights">
-                                <section>
-									<a  class="image cust_fade-in" >
-										<img src="{{$cocktail['strDrinkThumb']}}" alt="" data-position="center center" id="image_"/>
-									</a>
-									<div class="content">
-                                        
-										<div class="inner">
-											<header class="major">
-                                                <h2>{{$cocktail['strDrink']}}</h2>
-                                                @if($cocktail['strCategory'])
-                                                    <p>{{$cocktail['strCategory']}}</p>
-                                                @endif
-											</header>
+				@if(isset($cocktail['strGlass']))
+				<h3>Glass:</h3>
+				<p>{{$cocktail['strGlass']}}</p>
+				@endif
 
-                                            @if(isset($ingredients))
-                                            <h3>Ingredients:</h3>
-                                            @endif
-                                            <ul>
-                                            @foreach($ingredients as $key => $ingredient)
-                                                <li>
-                                                    @if(!empty($measures[$key])){{$measures[$key]}}@endif {{$ingredient}}
-                                                </li>
-                                            @endforeach
-                                            </ul>
-                                            
-                                            @if(isset($cocktail['strInstructions']))
-                                            <h3>Instructions:</h3>
-                                            <p>{{$cocktail['strInstructions']}}</p>
-                                            @endif
-
-                                            @if(isset($cocktail['strGlass']))
-                                            <h3>Glass:</h3>
-                                            <p>{{$cocktail['strGlass']}}</p>
-                                            @endif
-										</div>
-                                        
-									</div>
-                                </section>
-                                
-								<!-- <section>
-									<a href="generic.html" class="image">
-										<img src="images/pic09.jpg" alt="" data-position="top center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Rhoncus magna</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-                                
-                                <section>
-									<a href="generic.html" class="image">
-										<img src="images/pic10.jpg" alt="" data-position="25% 25%" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Sed nunc ligula</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-							</section> -->
-
-						<!-- Three -->
-							<!-- <section id="three">
-								<div class="inner">
-									<header class="major">
-										<h2>Massa libero</h2>
-									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button next">Get Started</a></li>
-									</ul>
-								</div>
-							</section> -->
-
+				<a class="button primary" href="/cocktails/{{$destiled}}#{{$cocktail['idDrink']}}" style="margin-bottom: 2rem;">Volver </a>
+			</div>
+		</div>
+	</section>
+</section>
 @endsection

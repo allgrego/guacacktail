@@ -1,16 +1,41 @@
 @extends('layouts/main-layout')
 
-@section('head')
+@section('title')
     <title> Guacacktail</title>
 @endsection
 
+@section('header')
+<header id="header" class="alt">
+    <a href="/" class="logo"><strong>Guacacktail</strong></a>
+    <nav>
+        <a href="#menu">Menu</a>
+    </nav>
+</header>
+@endsection
+
+@section('banner')
+<section id="banner" class="major">
+    <div class="inner">
+        <header class="major">
+            <h1>Welcome to Guacacktail</h1>
+        </header>
+        <div class="content">
+            <p>A website where you can submerge into the<br />
+            cocktails world</p>
+            <ul class="actions">
+                <li><a href="#one" class="button next scrolly">Get Started</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+@endsection
+
 @section('content')
-<!-- One -->
+{{-- One --}}
     <section id="one" class="tiles">
-        
         <article>
             <span class="image">
-                <img src="{{$images['rum']}}" alt="" />
+                <img src="{{$images['rum']}}" alt="rum" />
             </span>
             <header class="major">
                 <h3><a href="{{url('/cocktails/rum')}}" class="link">Rum</a></h3>
@@ -67,7 +92,6 @@
                 <p>Cocktails prepared with Gin</p>
             </header>
         </article>
-
     </section>
 @endsection
 					

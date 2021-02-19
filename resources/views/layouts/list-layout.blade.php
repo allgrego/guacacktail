@@ -1,127 +1,72 @@
-<!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		
-    <meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{{asset('css/main.css')}}" />
-		<link rel="stylesheet" href="{{asset('css/custom.css')}}" />
-        <noscript><link rel="stylesheet" href="{{asset('css/noscript.css')}}" /></noscript>
-        @yield('head')
-        <title>Guacacktail</title>
-	</head>
-	<body class="is-preload">
+@extends('layouts/main-layout')
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+@section('title')
+    <title> {{$destiled}} - Guacacktail</title>
+@endsection
 
-				<!-- Header -->
-				<!-- Note: The "styleN" class below should match that of the banner element. -->
-					<header id="header" class="alt style2">
-						<a href="/" class="logo"><strong>Guacacktail</strong> | {{$destilado}}</a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+@section('style')
+    
+@endsection
 
+@section('header')
+{{-- Header --}}
+<header id="header" class="alt style2">
+	<a href="/" class="logo"><strong>Guacacktail</strong> | {{$destiled}}</a>
+	<nav>
+		<a href="#menu">Menu</a>
+	</nav>
+</header>	
+@endsection
 
-				<!-- Menu -->
-					<nav id="menu">
-                        <ul class="actions stacked">
-							<li><a href="/" class="button primary fit">Home</a></li>
-                            <li><a href="/cocktails/rum" class="button fit">Rum Cocktails</a></li>
-                            <li><a href="/cocktails/vodka" class="button fit">Vodka Cocktails</a></li>
-                            <li><a href="/cocktails/beer" class="button fit">Beer Cocktails</a></li>
-                            <li><a href="/cocktails/wine" class="button fit">Wine Cocktails</a></li>
-                            <li><a href="/cocktails/tequila" class="button fit">Tequila Cocktails</a></li>
-                            <li><a href="/cocktails/gin" class="button fit">Gin Cocktails</a></li>
-						</ul>
-					</nav>
+@section('banner')
+	{{-- Banner --}}
+	{{-- Note: The "styleN" class below should match that of the header element. --}}
+	<section id="banner" class="style2">
+		<div class="inner">
+			<span class="image">
+				<img src="{{$cocktails[$randnum]['strDrinkThumb']}}" alt="" />
+			</span>
+			<header class="major">
+				<h1>{{$destiled}} Cocktails</h1>
+			</header>
+		</div>
+	</section>
+@endsection
 
-				<!-- Banner -->
-				<!-- Note: The "styleN" class below should match that of the header element. -->
-					<section id="banner" class="style2">
-						<div class="inner">
-							<span class="image">
-								<img src="{{$cocktails[$randnum]['strDrinkThumb']}}" alt="" />
-							</span>
-							<header class="major">
-								<h1>{{$destilado}} Cocktails</h1>
-							</header>
-							<!-- <div class="content">
-								<p>Lorem ipsum dolor sit amet nullam consequat<br />
-								sed veroeros. tempus adipiscing nulla.</p>
-							</div> -->
-						</div>
-					</section>
+@section('content')
 
-				<!-- Main -->
-					<div id="main">
+@yield('subcontent')
+{{-- Pagination --}}
+<section id="three">
+	<div class="inner" style="margin: auto">
+		<ul class="actions">
+			@if($page>2)
+				<li><a href="{{'/cocktails/'.$ingredient}}" class="button primary">1 ...</a></li>
+				<li><a href="{{'/cocktails/'.$ingredient.'?page='.($page-2)}}" class="button">{{$page - 2}}</a></li>
+			@endif
 
-@yield('content')
-						<!-- Three -->
-						<section id="three">
-							<div class="inner" style="margin: auto">
-								<ul class="actions">
-									<!-- <li><a href="generic.html" class="button next">Get Started</a></li> -->
-									<!-- <li><a href="{{'/cocktails/'.$destilado.'?page='.($page+1)}}" class="button next"></a></li> -->
-									@if($page>2)
-										<li><a href="{{'/cocktails/'.$destilado}}" class="button primary">1 ...</a></li>
-										<li><a href="{{'/cocktails/'.$destilado.'?page='.($page-2)}}" class="button">{{$page - 2}}</a></li>
-									@endif
+			@if($page>1)
+				<li><a href="{{'/cocktails/'.$ingredient.'?page='.($page-1)}}" class="button">{{$page - 1}}</a></li>
+			@endif
 
-									@if($page>1)
-										<li><a href="{{'/cocktails/'.$destilado.'?page='.($page-1)}}" class="button">{{$page - 1}}</a></li>
-									@endif
+				<li><a href="javascript: void(0)" class="button primary">{{$page}}</a></li>
 
-										<li><a href="javascript: void(0)" class="button primary">{{$page}}</a></li>
+			@if($page+1<=$last_page)
+				<li><a href="{{'/cocktails/'.$ingredient.'?page='.($page+1)}}" class="button">{{$page + 1}}</a></li>
+			@endif
 
-									@if($page+1<=$last_page)
-										<li><a href="{{'/cocktails/'.$destilado.'?page='.($page+1)}}" class="button">{{$page + 1}}</a></li>
-									@endif
+			@if($page+2<=$last_page)
+				<li><a href="{{'/cocktails/'.$ingredient.'?page='.($page+2)}}" class="button">{{$page + 2}}</a></li>
+			@endif
 
-									@if($page+2<=$last_page)
-										<li><a href="{{'/cocktails/'.$destilado.'?page='.($page+2)}}" class="button">{{$page + 2}}</a></li>
-									@endif
+			@if($page<$last_page-1)
+				<li><a href="{{'/cocktails/'.$ingredient.'?page='.($last_page)}}" class="button primary">... {{$last_page}}</a></li>
+			@endif
+		</ul>
+	</div>
+</section>
+@endsection
 
-									@if($page<$last_page-1)
-										<li><a href="{{'/cocktails/'.$destilado.'?page='.($last_page)}}" class="button primary">... {{$last_page}}</a></li>
-									@endif
-								</ul>
-							</div>
-						</section>
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="https://twitter.com/allgrego" target="_blank" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.instagram.com/allvrzgreg/"  target="_blank" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="https://github.com/allgrego" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="https://www.linkedin.com/in/gregorio-alvarez-martinez-6a561a124/" target="_blank" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-                                <li>&copy; Guacacktail</li><li>Made by: <a href="https://github.com/allgrego" target="_blank">allgrego</a> - Based on <a href="https://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-            <script src="{{asset('js/jquery.min.js')}}"></script>
-			<script src="{{asset('js/jquery.scrolly.min.js')}}"></script>
-			<script src="{{asset('js/jquery.scrollex.min.js')}}"></script>
-			<script src="{{asset('js/browser.min.js')}}"></script>
-			<script src="{{asset('js/breakpoints.min.js')}}"></script>
-			<script src="{{asset('js/util.js')}}"></script>
-			<script src="{{asset('js/main.js')}}"></script>
-
-	</body>
-</html>
+@section('scripts')
+    
+@endsection
