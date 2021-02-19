@@ -13,7 +13,7 @@
         @yield('title')
 		@yield('style')
 	</head>
-	<body class="" @yield('body_attributes')>
+	<body @yield('body_attributes')>
 
 		{{-- Wrapper --}}
 			<div id="wrapper">

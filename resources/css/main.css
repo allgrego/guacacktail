@@ -3380,14 +3380,14 @@ input, select, textarea {
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		/* background-image: url("../../images/banner.jpg"); */
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
 		padding: 6em 0 2em 0 ;
-		background-attachment: fixed;
-		background-position: center;
+		background-image: url("images/macaw01.jpg");
+		background-attachment:fixed;
+		background-position:center bottom;
 		background-repeat: no-repeat;
 		background-size: cover;
 		border-bottom: 0 !important;
@@ -3398,6 +3398,14 @@ input, select, textarea {
 		min-height: 22em;
 		position: relative;
 		top: -3.25em;
+		animation-name: appear;
+		animation-duration: 10s;
+		
+	}
+
+	@keyframes appear{
+		from{opacity: 0;}
+		to{opacity: 1;}
 	}
 
 		#banner:after {
@@ -3410,7 +3418,8 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			pointer-events: none;
-			background-color: #242943;
+			/* background-color: #242943; */
+			background-color: #252d57;
 			content: '';
 			display: block;
 			height: 100%;

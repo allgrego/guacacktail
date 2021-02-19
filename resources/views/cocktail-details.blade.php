@@ -38,7 +38,7 @@
 				<p>{{$cocktail['strGlass']}}</p>
 				@endif
 
-				<a class="button primary" href="/cocktails/{{$destiled}}#{{$cocktail['idDrink']}}" style="margin-bottom: 2rem;">Volver </a>
+				<a class="button primary" href="/cocktails/{{strtolower($destiled)}}?page={{$page}}" style="margin-bottom: 2rem;">Volver </a>
 			</div>
 		</div>
 	</section>

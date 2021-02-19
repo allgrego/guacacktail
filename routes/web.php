@@ -34,8 +34,8 @@ Route::get('/cocktails/{destiled}', function (Request $request, $destiled){
     $destilados = DestiledFuncs::getDestiladosList();
     if(!isset($destiled))return redirect(route('index'));
 
-    $page = (empty($request['page'])||!is_numeric($request['page']))?1:$request['page'];
-    $offset = 10;
+    $page = (empty($request->query('page')))?1:$request->query('page');
+    $offset = 5;
 
     $url = 'https://thecocktaildb.com/api/json/v1/1/filter.php?i='.$destiled;
     $response = Http::get($url);
@@ -63,6 +63,8 @@ Route::get('/cocktails/{destiled}', function (Request $request, $destiled){
 Route::get('/cocktail/{destiled}/{cid}', function (Request $request, $destiled, $cid){
     $destilados = DestiledFuncs::getDestiladosList();
     $destiled[0] = strtoupper($destiled[0]);
+
+    $page = ($request->query('p'))?$request->query('p'):1;
 
     if(!isset($cid)||!isset($destiled))return redirect("/");
 
@@ -95,7 +97,7 @@ Route::get('/cocktail/{destiled}/{cid}', function (Request $request, $destiled, 
         }
     }
 
-    return view("cocktail-details",compact('cocktail','ingredients','measures','destilados','destiled'));
+    return view("cocktail-details",compact('cocktail','ingredients','measures','destilados','destiled','page'));
 })->whereNumber('cid')->whereAlpha('destiled');
 
 // Testing

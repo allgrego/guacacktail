@@ -8,6 +8,7 @@
     
 @endsection
 
+
 @section('header')
 {{-- Header --}}
 <header id="header" class="alt style2">
@@ -24,7 +25,8 @@
 	<section id="banner" class="style2">
 		<div class="inner">
 			<span class="image">
-				<img src="{{$cocktails[$randnum]['strDrinkThumb']}}" alt="" />
+				{{-- <img src="{{$cocktails[$randnum]['strDrinkThumb']}}" alt="" /> --}}
+				<img src="{{asset('images/macaw01.jpg')}}" alt="" />
 			</span>
 			<header class="major">
 				<h1>{{$destiled}} Cocktails</h1>
